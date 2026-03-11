@@ -18,7 +18,7 @@ public class BilheteUnico {
         this.saldo = 0;
     }
 
-    public void passarNaCatraca() {
+    public boolean passarNaCatraca() {
         double valor = tarifa;
         if(tipoTarifa.equalsIgnoreCase("professor") || tipoTarifa.equalsIgnoreCase("estudante")){
             valor = tarifa / 2;
@@ -26,10 +26,11 @@ public class BilheteUnico {
 
         if (saldo < valor){
             System.out.println("Saldo insuficiente");
-            return;   //posso utilizar o return com void pq nao estou retornando nada
+            return false;   //posso utilizar o return com void pq nao estou retornando nada
         }
 
         saldo -= valor;
+        return true;
     }
 
 }
